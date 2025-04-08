@@ -53,7 +53,21 @@ body{
 .auth-box a:hover{
   text-decoration:underline;
 }
-#loginMsg,#regMsg{
+.google-btn {
+  background-color: #4285F4;
+  color: white;
+  font-weight: bold;
+  padding: 0.8em;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 1em;
+  cursor: pointer;
+}
+.google-btn:hover {
+  background-color: #357ae8;
+}
+#loginMsg, #regMsg{
   margin-top:1em;
 }
-
