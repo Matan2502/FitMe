@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitMe - אתר הדגמה</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 2em;
+      text-align: center;
+    }
+    nav {
+      background-color: #222;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      padding: 1em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #ff3366;
+    }
+    .cta {
+      background-color: #ff3366;
+      color: white;
+      padding: 1em 2em;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 1.2em;
+      margin-top: 1em;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .screenshot {
+      width: 100%;
+      max-width: 600px;
+      margin: 1em 0;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1em;
+      margin-top: 3em;
+    }
+  </style>
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+    window.onload = () => showPage('landing');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>FitMe</h1>
+    <p>העתיד של מדידת בגדים אונליין</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showPage('ui')">מסכי אפליקציה</a>
+    <a href="#" onclick="showPage('landing')">דף נחיתה</a>
+    <a href="#" onclick="showPage('idea')">רעיון</a>
+    <a href="#" onclick="showPage('illustration')">אילוסטרציה</a>
+  </nav>
+
+  <section id="landing">
+    <h2>פתרון</h2>
+    <p>קניית בגדים באינטרנט הפכה לדבר שבשגרה - אבל איך נוכל לדעת איך הבגד באמת ייראה עלינו?</p>
+    <p>עם <span style="color:#ff3366;font-weight:bold;">FitMe</span>, כל אחד יכול לראות איך בגד ייראה עליו לפני שהוא בכלל נוגע בו.</p>
+
+    <h2>כל מדידה קלה מתמיד</h2>
+    <ul>
+      <li>סריקת גוף או הזנת מידות</li>
+      <li>התאמת בגדים מתמונות ומידות של אתרי אופנה</li>
+      <li>הדמיה ויזואלית של הבגד על דמות תלת-ממדית</li>
+      <li>התאמה לפי מבנה גוף עם FitScore</li>
+      <li>שיתוף עם חברים וקבלת פידבק</li>
+    </ul>
+
+    <h2>למה כדאי לך להשקיע:</h2>
+    <p>מחפשים שותפים לדרך! משקיעים, יזמים, אתרי אופנה – הצטרפו למהפכת המדידה הדיגיטלית.</p>
+    <a href="#" class="cta">אני רוצה להשקיע</a>
+  </section>
+
+  <section id="idea" style="display:none;">
+    <h2>הרעיון שלנו</h2>
+    <p>הרבה אנשים קונים בגדים אונליין בלי לדעת אם יתאימו להם. FitMe תאפשר לכל משתמש:</p>
+    <ul>
+      <li>לקבל פידבק מה-AI על התאמת בגד</li>
+      <li>לבחור לפי סגנון אישי ולא רק מידות</li>
+      <li>למדוד יחד עם חברים – חוויה חברתית</li>
+      <li>לעקוב אחר שינויים בגוף לאורך זמן</li>
+      <li>לסרוק את הגוף פעם אחת, ולהשתמש שוב ושוב</li>
+    </ul>
+  </section>
+
+  <section id="illustration" style="display:none;">
+    <h2>אילוסטרציה</h2>
+    <p>כך זה נראה באפליקציה:</p>
+    <img src="Ilus.png" alt="הדמיה מתוך אפליקציית FitMe" class="screenshot" style="max-width: 300px;">
+
+    <p><em>הדמיה מציגה את שילוב הסטייליסט החכם, הדמות הריאליסטית וההולגרמה המסתובבת ב-360 מעלות.</em></p>
+  </section>
+
+  
+
+  <section id="ui" style="display:none;">
+    <h2>מסכי אפליקציה</h2>
+    <p>הצצה למסכים מתוך גרסת הקונספט של FitMe:</p>
+    <img src="fitme_home_screen.png" alt="מסך הבית" class="screenshot">
+    <img src="fitme_body_scan.png" alt="סריקת גוף" class="screenshot">
+    <img src="fitme_fitbot_recs.png" alt="המלצות מ־FitBot" class="screenshot">
+    <img src="Ilus.png" alt="תצוגת 360°" class="screenshot">
+  </section>
+
+<footer><p>&copy; 2025 FitMe - כל הזכויות שמורות</p></footer>
+</body>
+</html>
