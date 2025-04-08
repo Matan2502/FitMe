@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FitMe - הרשמה</title>
-  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="auth.css" />
 </head>
 <body>
   <div class="auth-container">
     <div class="auth-box">
       <h2>הרשמה ל-FitMe</h2>
-      <input type="email" id="regEmail" placeholder="אימייל">
-      <input type="password" id="regPassword" placeholder="סיסמה (6 תווים לפחות)">
-      <input type="tel" id="regPhone" placeholder="מספר טלפון">
+      <input type="email" id="regEmail" placeholder="אימייל" />
+      <input type="password" id="regPassword" placeholder="סיסמה (6 תווים לפחות)" />
+      <input type="tel" id="regPhone" placeholder="מספר טלפון" />
       <button onclick="register()">הרשמה</button>
-      <hr>
-      <button onclick="signInWithGoogle()" class="google-btn">הירשם עם Google</button>
+      <hr />
+      <button onclick="signInWithGoogle()" class="google-btn">הרשמה עם Google</button>
       <p>כבר יש לך חשבון? <a href="login.html">התחברות כאן</a></p>
       <div id="regMsg"></div>
     </div>
@@ -37,36 +37,58 @@
     };
     firebase.initializeApp(firebaseConfig);
 
-    function register(){
+    // הרשמה רגילה
+    function register() {
       const email = document.getElementById('regEmail').value;
       const password = document.getElementById('regPassword').value;
       const phone = document.getElementById('regPhone').value;
 
       firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const userId = userCredential.user.uid;
-        firebase.database().ref('users/' + userId).set({
-          email: email,
-          phone: phone
+        .then((userCredential) => {
+          const userId = userCredential.user.uid;
+          firebase.database().ref('users/' + userId).set({
+            email: email,
+            phone: phone
+          });
+          document.getElementById('regMsg').innerHTML = "✅ נרשמת בהצלחה!";
+        })
+        .catch((error) => {
+          document.getElementById('regMsg').innerHTML = "❌ " + error.message;
         });
-        document.getElementById('regMsg').innerHTML = "✅ נרשמת בהצלחה!";
-      })
-      .catch((error) => {
-        document.getElementById('regMsg').innerHTML = "❌ " + error.message;
-      });
     }
 
+    // התחברות עם Google - Redirect
+    const provider = new firebase.auth.GoogleAuthProvider();
+
     function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
+      firebase.auth().signInWithRedirect(provider);
+    }
+
+    firebase.auth().getRedirectResult()
       .then((result) => {
-        const user = result.user;
-        document.getElementById('regMsg').innerHTML = "✅ התחברת עם Google: " + user.email;
+        if (result.user) {
+          const user = result.user;
+          const container = document.getElementById('regMsg');
+          if (container) {
+            container.innerHTML = "✅ התחברת עם Google: " + user.email;
+          }
+        }
       })
       .catch((error) => {
-        document.getElementById('regMsg').innerHTML = "❌ " + error.message;
+        const container = document.getElementById('regMsg');
+        if (container) {
+          container.innerHTML = "❌ " + error.message;
+        }
       });
-    }
+
+    // זיהוי משתמש מחובר
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log("משתמש מחובר:", user.email);
+        // ניתן להפנות את המשתמש כאן אם תרצה
+        // window.location.href = "dashboard.html";
+      }
+    });
   </script>
 </body>
 </html>
