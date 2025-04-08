@@ -111,37 +111,27 @@
     <a href="#" class="cta">אני רוצה להשקיע</a>
   </section>
 
-  <section id="idea" style="display:none;">
-    <h2>הרעיון שלנו</h2>
-    <p>הרבה אנשים קונים בגדים אונליין בלי לדעת אם יתאימו להם. FitMe תאפשר לכל משתמש:</p>
-    <ul>
-      <li>לקבל פידבק מה-AI על התאמת בגד</li>
-      <li>לבחור לפי סגנון אישי ולא רק מידות</li>
-      <li>למדוד יחד עם חברים – חוויה חברתית</li>
-      <li>לעקוב אחר שינויים בגוף לאורך זמן</li>
-      <li>לסרוק את הגוף פעם אחת, ולהשתמש שוב ושוב</li>
-    </ul>
-  </section>
+  <footer><p>&copy; 2025 FitMe - כל הזכויות שמורות</p></footer>
 
-  <section id="illustration" style="display:none;">
-    <h2>אילוסטרציה</h2>
-    <p>כך זה נראה באפליקציה:</p>
-    <img src="Ilus.png" alt="הדמיה מתוך אפליקציית FitMe" class="screenshot" style="max-width: 300px;">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-database-compat.js"></script>
 
-    <p><em>הדמיה מציגה את שילוב הסטייליסט החכם, הדמות הריאליסטית וההולגרמה המסתובבת ב-360 מעלות.</em></p>
-  </section>
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
 
-  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-  <section id="ui" style="display:none;">
-    <h2>מסכי אפליקציה</h2>
-    <p>הצצה למסכים מתוך גרסת הקונספט של FitMe:</p>
-    <img src="fitme_home_screen.png" alt="מסך הבית" class="screenshot">
-    <img src="fitme_body_scan.png" alt="סריקת גוף" class="screenshot">
-    <img src="fitme_fitbot_recs.png" alt="המלצות מ־FitBot" class="screenshot">
-    <img src="Ilus.png" alt="תצוגת 360°" class="screenshot">
-  </section>
-
-<footer><p>&copy; 2025 FitMe - כל הזכויות שמורות</p></footer>
+    const database = firebase.database();
+  </script>
 </body>
 </html>
