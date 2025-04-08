@@ -136,3 +136,15 @@
   </script>
 </body>
 </html>
+<script>
+  // בדיקת כתיבה פשוטה ל-Firebase
+  firebase.database().ref('testConnection').set({
+    status: "החיבור הצליח!",
+    timestamp: Date.now()
+  }).then(() => {
+    console.log('נכתב בהצלחה ל-Firebase');
+  }).catch((error) => {
+    console.error('שגיאה בכתיבה ל-Firebase:', error);
+  });
+</script>
+
