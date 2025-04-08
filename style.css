@@ -1,59 +1,49 @@
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      direction: rtl;
-      background-color: #f9f9f9;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 2em;
-      text-align: center;
-    }
-    nav {
-      background-color: #222;
-      color: white;
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      padding: 1em;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 2em;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #ff3366;
-    }
-    .cta {
-      background-color: #ff3366;
-      color: white;
-      padding: 1em 2em;
-      text-align: center;
-      border-radius: 10px;
-      font-size: 1.2em;
-      margin-top: 1em;
-      display: inline-block;
-      text-decoration: none;
-    }
-    footer {
-      background-color: #222;
-      color: #ccc;
-      text-align: center;
-      padding: 1em;
-      margin-top: 3em;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+.main-header {
+  background-color: #111;
+  color: white;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main-header nav a {
+  color: white;
+  margin: 0 0.5em;
+  text-decoration: none;
+  font-weight: bold;
+}
+.main-header nav a:hover {
+  text-decoration: underline;
+}
+.container {
+  padding: 2em;
+  max-width: 960px;
+  margin: auto;
+  background-color: white;
+  margin-top: 2em;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+h1, h2 {
+  color: #ff3366;
+}
+footer {
+  text-align: center;
+  margin: 3em auto;
+  color: #888;
+}
+img.responsive {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-top: 1em;
+}

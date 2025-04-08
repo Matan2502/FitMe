@@ -1,104 +1,36 @@
-
-<!DOCTYPE html>
-<html lang="he">
+<!DOCTYPE html><html lang='he'>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FitMe - דף הבית</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .index-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2em;
-      flex-direction: column;
-      min-height: 100vh;
-      box-sizing: border-box;
-      background-color: #f9f9f9;
-    }
-    .index-box {
-      background-color: white;
-      max-width: 800px;
-      width: 100%;
-      padding: 2em;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .index-box h1, .index-box h2 {
-      color: #ff3366;
-    }
-    .index-box ul {
-      list-style: none;
-      padding: 0;
-    }
-    .index-box ul li::before {
-      content: "✔ ";
-      color: #ff3366;
-      font-weight: bold;
-    }
-    .index-box ul li {
-      margin-bottom: 0.8em;
-    }
-    .cta-btn {
-      background-color: #ff3366;
-      color: white;
-      padding: 0.8em 1.5em;
-      border: none;
-      font-size: 1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1.5em;
-    }
-    .nav-links {
-      margin-bottom: 2em;
-      text-align: center;
-    }
-    .nav-links a {
-      margin: 0 0.5em;
-      text-decoration: none;
-      font-weight: bold;
-      color: #ff3366;
-    }
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 2em;
-      text-align: center;
-      color: #999;
-    }
-  </style>
+  <title>FitMe</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="index-container">
-    
-  <div class="nav-links">
-    <a href="login.html">התחברות</a>
-    <a href="register.html">הרשמה</a>
-    <a href="about.html">עלינו</a>
+<header class="main-header">
+  <div class="brand">
+    <h1>FitMe</h1>
+    <p>חדר מדידה וירטואלי מותאם אישית</p>
+  </div>
+  <nav>
+    <a href="index.html">בית</a>
     <a href="how-it-works.html">איך זה עובד</a>
+    <a href="about.html">עלינו</a>
     <a href="contact.html">צור קשר</a>
-  </div>
+    <a href="register.html">הרשמה</a>
+    <a href="login.html">התחברות</a>
+  </nav>
+</header>
 
-    <div class="index-box">
-      <h1>ברוכים הבאים ל-FitMe</h1>
-      <p>פלטפורמה למדידת בגדים אונליין עם אווטאר תלת־ממדי, המלצות מידה חכמות וסטייליסט מבוסס AI.</p>
-
-      <h2>איך זה עובד?</h2>
-      <ul>
-        <li>סריקת גוף או הזנת מידות</li>
-        <li>התאמות מדויקות לפי מבנה גוף</li>
-        <li>הדמיה חיה והצגת תלבושות</li>
-        <li>שיתוף עם חברים</li>
-      </ul>
-
-      <a href="register.html" class="cta-btn">התחל עכשיו</a>
-    </div>
-    <footer>
-      <p>&copy; 2025 FitMe - כל הזכויות שמורות</p>
-    </footer>
-  </div>
-</body>
-</html>
+<div class="container">
+  <h1>התאמה מושלמת בלי לצאת מהבית</h1>
+  <p>עם FitMe, תוכל למדוד בגדים אונליין בעזרת הדמיה ריאליסטית, אווטאר מותאם אישית, והמלצות מידה חכמות.</p>
+  <h2>למה לבחור ב-FitMe?</h2>
+  <ul>
+    <li>✔ הדמיה תלת מימדית של הבגד על הגוף שלך</li>
+    <li>✔ אווטאר מותאם אישית לפי מידות אמתיות</li>
+    <li>✔ המלצות מידה מבוססות AI</li>
+    <li>✔ שיתוף מראה עם חברים בזמן אמת</li>
+    <li>✔ התאמה למאות אתרי אופנה מובילים</li>
+  </ul>
+</div>
+<footer>© 2025 FitMe</footer></body></html>
