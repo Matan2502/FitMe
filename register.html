@@ -14,6 +14,8 @@
       <input type="password" id="regPassword" placeholder="סיסמה (6 תווים לפחות)">
       <input type="tel" id="regPhone" placeholder="מספר טלפון">
       <button onclick="register()">הרשמה</button>
+      <hr>
+      <button onclick="signInWithGoogle()" class="google-btn">הירשם עם Google</button>
       <p>כבר יש לך חשבון? <a href="login.html">התחברות כאן</a></p>
       <div id="regMsg"></div>
     </div>
@@ -23,7 +25,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-database-compat.js"></script>
-
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyDdH_T0JFdYOD-RX9CpdsufoZ-6uHuvoI8",
@@ -54,7 +55,18 @@
         document.getElementById('regMsg').innerHTML = "❌ " + error.message;
       });
     }
+
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        document.getElementById('regMsg').innerHTML = "✅ התחברת עם Google: " + user.email;
+      })
+      .catch((error) => {
+        document.getElementById('regMsg').innerHTML = "❌ " + error.message;
+      });
+    }
   </script>
 </body>
 </html>
-
