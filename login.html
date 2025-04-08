@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitMe - התחברות</title>
-  <link rel="stylesheet" href="auth.css" />
+  <link rel="stylesheet" href="auth.css">
 </head>
 <body>
   <div class="auth-container">
     <div class="auth-box">
       <h2>התחברות ל-FitMe</h2>
-      <input type="email" id="loginEmail" placeholder="אימייל" />
-      <input type="password" id="loginPassword" placeholder="סיסמה" />
+      <input type="email" id="loginEmail" placeholder="אימייל">
+      <input type="password" id="loginPassword" placeholder="סיסמה">
       <button onclick="login()">התחברות</button>
-      <hr />
+      <hr>
       <button onclick="signInWithGoogle()" class="google-btn">התחברות עם Google</button>
       <p>אין לך חשבון? <a href="register.html">הרשמה כאן</a></p>
       <div id="loginMsg"></div>
@@ -34,52 +34,30 @@
     };
     firebase.initializeApp(firebaseConfig);
 
-    // התחברות רגילה
-    function login() {
+    function login(){
       const email = document.getElementById('loginEmail').value;
       const password = document.getElementById('loginPassword').value;
 
       firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          document.getElementById('loginMsg').innerHTML = "✅ התחברת בהצלחה!";
-        })
-        .catch((error) => {
-          document.getElementById('loginMsg').innerHTML = "❌ " + error.message;
-        });
-    }
-
-    // התחברות עם Google - Redirect
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    function signInWithGoogle() {
-      firebase.auth().signInWithRedirect(provider);
-    }
-
-    firebase.auth().getRedirectResult()
-      .then((result) => {
-        if (result.user) {
-          const user = result.user;
-          const container = document.getElementById('loginMsg');
-          if (container) {
-            container.innerHTML = "✅ התחברת עם Google: " + user.email;
-          }
-        }
+      .then((userCredential) => {
+        document.getElementById('loginMsg').innerHTML = "✅ התחברת בהצלחה!";
       })
       .catch((error) => {
-        const container = document.getElementById('loginMsg');
-        if (container) {
-          container.innerHTML = "❌ " + error.message;
-        }
+        document.getElementById('loginMsg').innerHTML = "❌ " + error.message;
       });
+    }
 
-    // זיהוי משתמש מחובר
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("משתמש מחובר:", user.email);
-        // אפשר להפנות אותו לעמוד אחר כאן
-        // window.location.href = "dashboard.html";
-      }
-    });
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        document.getElementById('loginMsg').innerHTML = "✅ התחברת עם Google: " + user.email;
+      })
+      .catch((error) => {
+        document.getElementById('loginMsg').innerHTML = "❌ " + error.message;
+      });
+    }
   </script>
 </body>
 </html>
