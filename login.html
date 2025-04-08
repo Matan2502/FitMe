@@ -13,7 +13,9 @@
       <input type="email" id="loginEmail" placeholder="אימייל">
       <input type="password" id="loginPassword" placeholder="סיסמה">
       <button onclick="login()">התחברות</button>
-      <p>עדיין אין לך חשבון? <a href="register.html">הרשמה כאן</a></p>
+      <hr>
+      <button onclick="signInWithGoogle()" class="google-btn">התחברות עם Google</button>
+      <p>אין לך חשבון? <a href="register.html">הרשמה כאן</a></p>
       <div id="loginMsg"></div>
     </div>
   </div>
@@ -44,7 +46,18 @@
         document.getElementById('loginMsg').innerHTML = "❌ " + error.message;
       });
     }
+
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        document.getElementById('loginMsg').innerHTML = "✅ התחברת עם Google: " + user.email;
+      })
+      .catch((error) => {
+        document.getElementById('loginMsg').innerHTML = "❌ " + error.message;
+      });
+    }
   </script>
 </body>
 </html>
-
